@@ -1,0 +1,117 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mission to Mars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</head>
+<body>
+    <!--Jumbotron-->
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Mission to Mars</h1>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Scrap New Data</a>
+            </p>
+        </div>
+    </div>
+    
+    <!--Grid system-->
+    <!--Lastest Mars News-->
+  
+    
+    <div class="row">
+    <div class="container">
+        <div class="col-sm-12">
+            <h1>Latest Mars News</h1>
+            <!--render tile-->
+            <h2>{{ mars.news_title }}</h2>
+            <p>{{ mars.descrition }}</p>
+
+        </div>
+    </div>
+    </div>
+    <!--Featured Mars Image-->
+    
+    <div class="row">
+    <div class="container">
+        <div class="col-sm-8">
+            <img src="{{mars.featured_image_url}}" alt="" class="img-fluid">
+        </div>
+        <div class="col-sm-4">
+             <!--Current Weather-->
+            <div class="container">
+                <p>{{ mars.mars_weather }}</p>
+
+            </div>
+            <!--Mars Facts Table-->
+            <div class="container">
+                {{ mars.mars_facts | safe }}
+            </div>
+
+        </div>
+    </div>    
+    </div>
+
+    <!--Mars Hemisphere-->
+    <div class="container">
+        <div class="page-header">
+            <h1>Mars Hemisphere</h1> 
+        </div>
+
+        <div class="container">
+            <!-- Gallery Grid -->
+            <div class="row">
+                <div class="column">
+                    <div class="content">
+                        <img src="{{ mars.mars_hemisphere_urls.vmh.img_url }}" alt="" style="width:100%">
+                        <h3>{{ mars.hemisphere_image_urls }}</h3>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="{{ mars.mars_hemisphere_urls.ch.img_url }}" alt="" style="width:100%">
+                        <h3>{{ mars.hemisphere_image_urls }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="content">
+                        <img src="{{ mars.mars_hemisphere_urls.sh.img_url }}" alt="" style="width:100%">
+                        <h3>{{ mars.hemisphere_image_urls }}</h3>
+                    </div>
+                 </div>
+                <div class="column">
+                    <div class="conteant">
+                        <img src="{{ mars.mars_hemisphere_urls.smh.img_url }}" alt="" style="width:100%">
+                        <h3>{{ mars.hemisphere_image_urls }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+    
+
+
+  
+    
+    
+</body>
+</html>
