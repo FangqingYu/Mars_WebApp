@@ -25,7 +25,7 @@
         <div class="jumbotron text-center">
             <h1 class="display-4">Mission to Mars</h1>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Scrap New Data</a>
+                <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrap New Data</a>
             </p>
         </div>
     </div>
@@ -37,10 +37,12 @@
     <div class="row">
     <div class="container">
         <div class="col-sm-12">
-            <h1>Latest Mars News</h1>
+            <div class="page-header">
+                <h1>Latest Mars News</h1>
+            </div>
             <!--render tile-->
             <h2>{{ mars.news_title }}</h2>
-            <p>{{ mars.descrition }}</p>
+            <font size = "3"><p>{{ mars.descrition }}</p></font>
 
         </div>
     </div>
@@ -50,13 +52,16 @@
     <div class="row">
     <div class="container">
         <div class="col-sm-8">
-            <img src="{{mars.featured_image_url}}" alt="" class="img-fluid">
+            <div class="page-header">
+                <img src="{{mars.featured_image_url}}" alt="" class="img-fluid">
+            </div>
         </div>
         <div class="col-sm-4">
              <!--Current Weather-->
-            <div class="container">
-                <p>{{ mars.mars_weather }}</p>
-
+            <div class="container">  
+                <div class="page-header">
+                    <font size="3"> <p> {{ mars.mars_weather }} </p> </font>
+                </div>
             </div>
             <!--Mars Facts Table-->
             <div class="container">
@@ -78,28 +83,28 @@
             <div class="row">
                 <div class="column">
                     <div class="content">
-                        <img src="{{ mars.mars_hemisphere_urls.vmh.img_url }}" alt="" style="width:100%">
-                        <h3>{{ mars.hemisphere_image_urls }}</h3>
+                        <img src="{{ mars.mars_hemisphere_urls.vmh.img_url }}" alt="" width="555", height="555">
+                        <center><h3>{{ mars.mars_hemisphere_urls.vmh.title }}</h3></center>
                     </div>
                 </div>
                 <div class="column">
                     <div class="content">
-                        <img src="{{ mars.mars_hemisphere_urls.ch.img_url }}" alt="" style="width:100%">
-                        <h3>{{ mars.hemisphere_image_urls }}</h3>
+                        <img src="{{ mars.mars_hemisphere_urls.ch.img_url }}" alt="" width="555", height="555">
+                        <center><h3>{{ mars.mars_hemisphere_urls.ch.title }}</h3></center>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="column">
                     <div class="content">
-                        <img src="{{ mars.mars_hemisphere_urls.sh.img_url }}" alt="" style="width:100%">
-                        <h3>{{ mars.hemisphere_image_urls }}</h3>
+                        <img src="{{ mars.mars_hemisphere_urls.sh.img_url }}" alt="" width="555", height="555">
+                        <center><h3>{{ mars.mars_hemisphere_urls.sh.title }}</h3></center>
                     </div>
                  </div>
                 <div class="column">
                     <div class="conteant">
-                        <img src="{{ mars.mars_hemisphere_urls.smh.img_url }}" alt="" style="width:100%">
-                        <h3>{{ mars.hemisphere_image_urls }}</h3>
+                        <img src="{{ mars.mars_hemisphere_urls.smh.img_url }}" alt="" width="555", height="555">
+                        <center><h3>{{  mars.mars_hemisphere_urls.smh.title }}</h3></center>
                     </div>
                 </div>
             </div>

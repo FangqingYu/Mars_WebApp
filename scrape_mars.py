@@ -37,7 +37,7 @@ def scrape():
     # Create bs object for twitter weather page
     soup_weather = bs(browser.html, "html5lib")
     # Scrape for latest weather tweet
-    mars_weather = soup_weather.find_all('p', class_="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text")[0].text
+    mars_weather = soup_weather.find('p', class_="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text").text.strip("55pic.twitter.com/Or8q1l3tka")
 
     
     # URL of mars facts page
@@ -47,6 +47,8 @@ def scrape():
     mars_facts = pd.read_html(url_facts)[0]
     # Rename columns
     mars_facts.columns=[" ", "Value"]
+    # reset index
+    mars_facts.set_index([" "], inplace=True)
     # Convert to html
     mars_facts_html = mars_facts.to_html().replace('\n', '')
  
@@ -54,7 +56,7 @@ def scrape():
     #  Mars hemisphere images URLs 
     hemisphere_image_urls = {
         'vmh': {"title": "Valles Marineris Hemisphere", "img_url": "https://mars.nasa.gov/system/resources/detail_files/6453_mars-globe-valles-marineris-enhanced-full2.jpg"},
-        'ch': {"title": "Cerberus Hemisphere", "img_url": "https://planetary.s3.amazonaws.com/assets/images/4-mars/2014/20140202_valles_marineris_enhanced_f840.jpg"},
+        'ch': {"title": "Cerberus Hemisphere", "img_url": "https://planetary.s3.amazonaws.com/assets/images/4-mars/2014/20140202_cerberus_enhanced_f840.jpg"},
         'sh': {"title": "Schiaparelli Hemisphere", "img_url": "https://planetary.s3.amazonaws.com/assets/images/4-mars/2014/20140202_schiaparelli_enhanced_f840.jpg"},
         'smh': {"title": "Syrtis Major Hemisphere", "img_url": "https://planetary.s3.amazonaws.com/assets/images/4-mars/2014/20140202_syrtis_major_enhanced_f840.jpg"}
     }
