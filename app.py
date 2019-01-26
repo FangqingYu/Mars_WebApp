@@ -16,6 +16,9 @@ def home():
 
     # Find one record of data from the mongo database
     mars = mongo.db.mars.find_one()
+    
+    if(mars is None):
+        return redirect('/scrape', code=302)
     # Return template and data
     return render_template("index.html", mars=mars)
 
